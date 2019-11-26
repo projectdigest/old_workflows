@@ -1,0 +1,809 @@
+---
+output: 
+  flexdashboard::flex_dashboard:
+    theme: cerulean
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(knitr)
+library(kableExtra)
+```
+
+Introduction
+=====================================  
+
+Column 1 
+--------------------------------------------------
+
+###<font size="5">From model organisms to ecosystems: scaling-up our understanding of host-microbe symbiosis in the sea</font> 
+
+
+December 3--8 2018  
+Smithsonian Tropical Research Institute  
+Bocas del Toro Research Station  
+
+#####Overview
+Animals serve as ecosystems for a suite of bacteria, archaea, viruses and fungi with which they interact in various ways. These host-microbe interactions have played a fundamental role in the diversification, evolution and ecology of all animals on Earth. They may also play a crucial role for the future of biodiversity by mediating the effects of perturbations on individuals and communities of hosts. Considerable knowledge on the underpinnings of microbial symbiosis originates from integrative research programs on model systems (e.g., squid-vibrio, gutless worm), and there is an urgent need to understand if and how these concepts can be generalized across the tree of life.
+
+During this workshop we will summarize and synthesize the current state of our knowledge on the mechanisms and the role of animal-microbe interactions in the sea. As anthropogenic activities affect the dynamics of our oceans, we will discuss how the field can become more unified and predictive. How do we go about understanding the role of environmental stress on host-microbe interactions and the future of marine communities?
+
+
+The result of these discussions will be summarized into a manuscript that will be submitted for peer-review in an international journal. All participants in the workshop will be invited to participate.
+
+Column 1 
+--------------------------------------------------
+
+###Venue
+The workshop will take place at the Bocas del Toro field station, Smithsonian Tropical Research Institute, Republic of Panama. Bocas del Toro is an archipelago of six main islands and hundreds of mangrove islands of varying size. Dominant shallow water benthic habitats include the red mangrove (*Rhizophora mangle*), seagrass (mainly *Thalassia testudinum*), and coral (e.g., *Porites* spp. &  *Agaricia* spp.). The station is equipped with eight field boats, two field trucks, a full dive facility, numerous lab spaces, microscopy equipment, a seawater facility, and experimental tanks. There are two houses, eight research dorms, a student dorm, and a common kitchen/dinning hall. In addition to primary research activities that encompass both marine and terrestrial systmes, the station hosts  undergraduate and graduate courses as well as taxonomy workshops. 
+
+Transportation, accommodation, and meals will be provided to all participants. Any questions or inquiries about the logistics can be addressed to Fabiola Jenkins or Jarrod Scott. 
+
+
+Important Details 
+=====================================  
+
+Column 1 
+--------------------------------------------------
+
+###General Info
+
+####Water
+
+<font size="5">Do not drink</font> untreated tap water in Bocas. There are special taps at the station that deliver clean drinking water. <font size="5">Bring a water bottle</font>.
+
+####Money
+
+<font size="5">Cash</font>  rules in Bocas and there is only one ATM on the island. The currency in Panama is the USD. 
+
+####Communication
+
+You can get <font size="5">WiFi</font> in the houses, research dorms, labs, & dinning hall. Occasionally internet service does go out. WhatsApp is a great option for communicating back home & within Bocas. You can also get a local SIM card and a pay as you go data plan at the airport in Panama City or in Bocas. Ask us for more details if you are interested.  
+
+##### Networks \& Passwords
+
+si-dorms: c\@pYBaR4  
+si-internal: go!Cap1tals  
+si-visitor: OPEN  
+eduroam: works with .edu credentials
+
+####Climate 
+
+The climate in Bocas is mild. It does <font size="5">rain</font>, sometime a lot. So plan accordingly or just plan on getting wet. You rarely need long sleeves & it doesn't really get too hot. That said,  many of the labs at the station can be quite cool so you may want to pack a hoodie or something else to keep you comfortable when we are inside. 
+
+####Health & Safety in Bocas
+
+Petty crime is the biggest safety concern in Bocas (well that and taxis drive entirely too fast). Be mindful of your belongings and you should be fine. There are many free roaming dogs around town but they are pretty mellow. Something is always under construction so mind your step when you are out and about. All in all, Bocas is generally a peaceful place.
+
+
+Column 1 
+--------------------------------------------------
+
+###Stuff to Bring
+
+####In the field
+
+We are planning to spend some time in the field exploring local sites. We will be in <font size="5">boats</font>, <font size="5">snorkeling</font>, and <font size="5">scrambling</font> around on shore (possibly in mangroves). If you are not interested in participating in these activities, please let one of the organizers know and we will arrange for an equally awesome alternative activity. To ensure your comfort and enjoyment please consider bringing the following items:
+
+* Mask and snorkel
+* Hat
+* Water bottle
+* Sunscreen
+* Crocs, dive booties, Natives, old sneaks, etc.
+* Sunglasses
+* SPF 50 rash guard or other arm/shoulder protection
+* Swim gear
+* Camera
+* Flip flops/sandals
+
+**If you don't have some of these items**, like a mask and snorkel, don't worry about it. We will sort you out---just let us know what you need ahead of time. 
+
+####Other items
+
+Each dorm room has lockers for your personal effects. Please bring a <font size="4">Pad lock</font> if you would like to use a locker.
+
+Column 1
+--------------------------------------------------
+
+###Cuisine & Local Flavors
+
+The province of Bocas del Toro and  surrounding islands are  home to many <font size="5">cacao</font> farms and chocolate makers. You can find cacao in several different forms including bars, nibs, powder, and raw beans. Be sure to talk to **Luis	Mejia** (one of the workshop participants) about *Theobroma cacao*---he is an expert on this amazing plant.
+
+If you like spicy there is some awesome local hot sauce made with <font size="5">aji chombo</font> (*Capsicum chinense*), a fiery Panamanian pepper similar in appearance to a habanero. Typical Panamanian food in not spicy but most restaurants will have some variation of hot sauce made with these peppers that you can slather on your food. 
+
+There are many cool varieties of <font size="5">fruit & vegetables</font> available in Bocas including plantains, papaya, passionfruit, mango, rambutan, and naranjilla. And you can get some pretty dang good <font size = "5">ceviche</font> too.
+
+
+For all intents and purposes, Panama has two national <font size="5">beers</font>---Panama and Balboa. There are also two different local spirits. Seco Herrerano, distilled from sugar cane, is often mixed with tropical fruits or milk (known as "seco con vaca"). Use at your own risk. More well known is Panama's de facto national rum, Ron Abuelo, which is available in several ages. If you enjoy rum it is definitely worth a try. 
+
+
+Attendees
+=====================================  
+
+Column 1 
+--------------------------------------------------
+
+```{r attendee_table}
+
+attend <- read.csv("attendees.txt", header = TRUE, sep = ",", check.names = FALSE)
+knitr::kable(attend) %>% kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+
+Topic 1 (Tuesday)  {data-navmenu="Topics"}
+=====================================  
+
+
+--------------------------------------------------
+
+###Topic 1: Defining & Sampling a Microbiome
+
+**1A: What is a core microbiome?** 
+
+Group members, moderator, note taker/presenter
+
+**1B: How to characterize the core microbiome?** 
+
+Group members, moderator, note taker/presenter
+
+
+Topic 2 (Wednesday) {data-navmenu="Topics"}
+=====================================  
+
+
+--------------------------------------------------
+
+###Topic 2: From Defining Patterns to Predicting Drivers of Diversity
+
+
+**2A: What is a healthy microbiome? Does microbial diversity matter for the host? Is more microbes better? Or fewer beneficial symbionts?**  
+
+Group members, moderator, note taker/presenter
+
+**2B: How to identify the tipping point from symbiosis to dysbiosis in host-associated microbiomes?** 
+
+Group members, moderator, note taker/presenter
+
+**2C: Modelling of host-microbe interactions. How do we go from describing the variation to deciphering what is driving it.**
+
+Group members, moderator, note taker/presenter
+
+**2D: A null model for microbial communities**
+
+Group members, moderator, note taker/presenter
+
+**2E: Monitoring host-microbe interactions: can we identify model systems or hosts to monitor (e.g., host-microbiomes with cosmopolitan distribution)?** 
+
+Group members, moderator, note taker/presenter
+
+Topic 3 (Thursday) {data-navmenu="Topics"}
+=====================================  
+
+
+--------------------------------------------------
+
+
+###Topic 3: From Predicting Patterns to Conserving Diversity
+
+**What can microbiology do for conservation? **
+
+Group members, moderator, note taker/presenter
+
+Topic 4 (Thursday) {data-navmenu="Topics"}
+=====================================  
+
+
+--------------------------------------------------
+
+
+###Topic 4: Expanding the breath of host-microbe studies
+
+**On what taxonomic, phylogenetic and functional groups should future studies on symbiosis be focusing and why?**
+
+Group members, moderator, note taker/presenter
+
+
+Monday {data-navmenu="Schedule"}
+=====================================  
+
+Column 1
+--------------------------------------------------
+
+### 
+
+#####**Overview**
+
+Welcome to Smithsonian Tropical Research Institute (STRI) and the Bocas del Toro research station. The program for the afternoon session is pretty straightforward. We will begin with a brief overview of the workshop, discuss the importance of the Isthmus of Panama, and tell you a bit about the project that inspired this workshop. 
+
+The purpose of this session is to introduce you to past, present, and future work at STRI. STRI has over 40 permanent staff scientists and hosts over a thousand  visiting researchers every year. Research at STRI spans many disciplines---from Archaeology and Paleobiology to Neurobiology and Microbial Ecology---across a spectrum of tropical systems. You can find scientists climbing in the canopy of a massive tree or diving on a beautiful coral reef. 
+
+STRI's research assests are as diverse as it's science. The Institute maintains 11 permenant research and educational facilities, including a tiny field station at Fortuna in the cloud forests of Panama's highlands and a new state of the art facility in Gamboa on the Panama Canal. 
+
+
+Column 4
+--------------------------------------------------
+
+### Monday Schedule
+
+
+####0730-0830 Breakfast 
+
+for those on station. 
+
+####0830-1115
+
+Due to flight delay, we will not do lightening talks. 
+Those on station will have free time
+
+
+#### 1000
+pick up arrivals  
+back to station  
+settle in  
+
+
+#### 1130--1215 Lunch
+
+#### 1230--1630 Afternoon Session
+
+##### 1230-1245 
+
+Matt Leray--General Introduction
+
+##### 1245-1255 
+
+Plinio Gondola--The Bocas Station 
+
+##### 1255-1315 
+
+Rachel Collin  
+*Title: Environmental \& Biodiversity Research in Bocas del Toro.*
+
+##### 1315-1330 
+
+Jarrod Scott
+*Title: STRI \& The Isthmus of Panama*
+
+##### 1330-1400 Break
+
+##### 1400-1420 
+
+Ross Robertson  
+*Title: Contrasts in the marine environments and biotas across the central American Isthmus*
+
+##### 1420-1445 
+
+Haris Lessios  
+*Title:* TBA
+
+##### 1445-1505 
+
+Allen 	Herre  
+*Title:* TBA
+
+#### 1505-1530 Break 
+
+##### 1530-1550 
+
+Emmett Duffy  
+*Title:* TBA
+
+##### 1550-1610
+
+Laetitia Wilkins  
+*Title: The IstmoBiome Project*
+
+##### 1610--1700 Open for now
+* Jon Kaye 
+* Bill Wcislo
+* Jonathan Eisen
+
+
+
+#### 1700--2130 Happy Hour & Dinner in Town
+
+
+Tuesday {data-navmenu="Schedule"}
+=====================================  
+
+Column 2
+--------------------------------------------------
+
+### **Topic 1: Defining & Sampling a Microbiome**
+
+#####**Overview**
+
+In the literature, core microbiomes are broadly defined as assemblages of microbial taxa that are consistently found across individuals of the same species. They form intimate and specialized relationships with their host. 
+ 
+#####General Discussion
+
+What are the attributes of a core microbiome? Do all metazoan have a core microbiomes? Are some microbial taxa consistently found across hosts of a community? And are they functionally important or opportunistic taxa? 
+
+How to characterize the core microbiome of all hosts within a community (i.e., methodological considerations for comparative approaches)? How do marine hosts acquire this core community? How to account for environmental (oceanographic) factors impacting this core or masking the detection of the core community?
+
+
+#####References
+
+Column 2
+--------------------------------------------------
+
+### Tuesday Schedule
+
+####0700--0830 Breakfast
+
+
+####0900--1200 Topic 1
+
+Jarrod will get Becky from the airport
+
+#####0900--0915
+
+Introduction to Topic 1 (Jarrod)
+
+#####0915--1015
+
+#####<font color="red">**Break-out groups**</font> 
+
+* 1A: **What is a core microbiome?**
+* 1B: **How to characterize the core microbiome?**
+
+####1015--1045 Break
+
+#####1045--1115
+
+Report and discuss ideas from topics
+
+
+#####1115--1200
+
+Summary and discussion of morning sessions
+
+####1200--1630 Field trip
+
+ with lunch in the field
+
+#####1630--1730		
+
+Debrief	
+
+####1800--1930 Dinner
+
+
+#####1930--2100	
+
+Evening Discussion
+
+* Discuss sampling strategies from in the field. 
+* How to standardize it. Storage and extraction protocols. 
+* Do common protocols introduce bias and selection? 
+* Which species are missed? 
+* Would it make sense to produce guidelines/website/protocols? 
+
+Wednesday {data-navmenu="Schedule"}
+=====================================  
+
+Wednesday
+--------------------------------------------------
+
+### **Topic 2: From Defining Patterns to Predicting Drivers of Diversity**
+
+#####**Overview**
+
+The magnitude and frequency of environmental stressors are impacting the dynamics of host microbe interactions. The breakdown of mutualistic relationships can cascade through entire ecosystems with devastating effects on biodiversity and ecological services. Emerging evidence suggests that a set of environmental conditions must be met to initiate the switch from beneficial to detrimental interactions. For example, temperature anomalies beyond some number of days lead to the exclusion of zooxanthellae by host corals. In the case of corals, a well-studied system, symbionts consume too much sugar and get expelled from the host when temperature rises. There is a fine line between mutualism and parasitism.
+
+Existing studies of microbial communities on marine hosts highlight in most cases: 1) a great diversity of microbial partners (i.e., one host - one microbe such as interactions highlight the squid-vibio model are not the norm); 2) some hosts have much more diverse microbiomes than others (e.g., within sponges and corals). The significant of these large differences in diversity is not well understood but microbial diversity (both alpha and beta) might have an import role in host fitness and stability in changing environmental conditions.
+
+##### General Discussion
+
+Is a higher richness of microbes beneficial to a host? Do diverse associations promote host fitness and stable holobionts in changing environmental conditions? 
+
+How to identify the tipping point from symbiosis to dysbiosis in host-associated microbiomes (beyond corals-zooxanthellae)? How to differentiate microbial imbalance from natural variations in microbiomes (e.g., driven by seasonality, changes in diet and life history events)? What is a healthy microbiome? 
+
+
+#####References
+
+Column 4
+--------------------------------------------------
+
+### Wednesday Schedule
+
+####0700-0830 Breakfast
+
+####0900--1200 Topic 2
+
+#####0900--0915
+
+Introduction to Topic 2  (Laetitia/Matt)
+
+#####0915--1015
+
+#####<font color="red">**Break-out groups**</font> 
+
+* 2A: **What is a healthy microbiome? **
+*Does microbial diversity matter for the host? Are more microbes better? Or fewer beneficial symbionts?*
+* 2B: **How to identify the tipping point from symbiosis to dysbiosis in host-associated microbiomes?**
+
+#####10:15--1045
+
+Report and discuss ideas
+
+####1045--1115	Break
+
+#####1115--1200		
+
+Summary and discussion of morning sessions
+
+####1200--1300	Lunch
+
+#####1300--1500 		
+
+#####<font color="red">**Break-out groups**</font>: Modelling of host-microbe interactions. 
+
+Introduction by Jonathan Eisen
+
+* 2C: **How do we go from describing the variation to deciphering what is driving it.**
+
+* 2D: **A null model for microbial communities**
+
+* 2E: **Monitoring host-microbe interactions: can we identify model systems or hosts to monitor (e.g., host-microbiomes with cosmopolitan distribution)?**
+
+#####1500--1545		
+
+Report and discuss ideas
+
+####1545--1700		Break
+
+
+#####1700--1830		
+
+General discussion How do we progress from surveying the microbiome to modeling it? How do we move from defining variation to understanding what is driving it? 
+
+
+####1830--1930 Dinner
+ 
+After dinner social mixing, relaxing, resting, individual time.
+
+#####19:30--
+
+For those interested Laetitia will organize a voluntary session on modeling the null model of microbial colonization of a host that night.
+
+We need a theoretical framework that simulates how a Null hypothesis would look like. In the case of microbiomes this is a distribution of microorganisms (in a simple case just 16S reads) on hosts that does not follow any form of coevolution with the host. Just random assemblages that follow rules of colonization, migration, drift and mutation.
+
+
+Thursday {data-navmenu="Schedule"}
+=====================================  
+
+Column 4
+--------------------------------------------------
+
+### **Topic 3: From Predicting Patterns to Conserving Diversity**
+
+#####**Overview**
+
+There is growing concern about the resilience of marine ecosystems. For example, corals, the foundation species of coral reefs, may not be able to acclimate or adapt to ongoing environmental changes. This has stimulated debates about how methods of assisted evolution could be used to help marine ecosystems to retain ecosystem services.
+ 
+Discussion: The inoculation of bacterial communities or strains that can promote the resistance of hosts to stress. Which microbial symbionts influence the host phenotype/fitness (e.g., core microbes, specific strains absent in wild populations?)? At what scale should these measures be taken? And what are the precautions to be taken?
+
+#####References
+
+### **Topic 4: Expanding the breath of host-microbe studies**
+
+#####**Overview**
+
+Our understanding of host-microbe interactions is known in great depth from a very few number of “simple” study systems (i.e., squid-vibrio, lucinid clams, Atlantic killfish, *Olavius oligochaete*) and a larger number of foundation species (i.e., corals, sponges). Assuming that between 0.3 and 2.2 million metazoan species live in the ocean, our knowledge about host-microbe interactions is based upon 0.03% and 0.004% of all marine host species only (they fall in 5 out of 32 phyla living in the ocean).
+ 
+Discussion: What have we learned from these systems? Why are some systems being studied more than others? On what taxonomic, phylogenetic and functional groups should future studies on symbiosis be focusing and why? Play a game with the group: If you could pick 10 organisms to study, how would you pick them? Why?
+
+Can we study hosts in aquaria without disrupting their symbioses, or are field studies necessary?
+
+How can a system be studied with a more systematic approach? How deep do you have to study a system? Where should we prioritize research?
+
+#####References
+
+Column 4
+--------------------------------------------------
+
+### Thursday Schedule
+
+#####0630-0730 Breakfast
+
+####0800--1200 Field trip
+
+Fossils with Aaron O’Dea
+
+Lunch in the field
+
+####1400--1700 Topic 3
+
+#####1400--1430
+
+Raquel Peixoto \& Luis	Mejia on Probiotics/BMMO (title TBA; confirmed)
+
+#####1440--1540 
+
+#####<font color="red">**Break-out groups**</font> 
+
+3A: **What can microbiology do for conservation?**
+
+#####1540--1640		
+
+Report and discuss ideas
+
+#####1640--1700 Break
+
+####1700--1900 Topic 4 
+
+With refreshments 
+
+#####1700--1715
+
+Introduction to  Topic 4 (Laetitia/Matt/Jarrod)
+
+#####1715--1815		
+
+#####<font color="red">**Break-out groups**</font> 
+
+4A: **On what taxonomic, phylogenetic and functional groups should future studies on symbiosis be focusing and why?**
+
+#####1815--1900		
+
+Report and discuss ideas 
+
+####1900--	Happy hour & Dinner
+
+
+
+Friday {data-navmenu="Schedule"}
+=====================================  
+
+Column 5
+--------------------------------------------------
+
+### **Topic 5: Synthesis**
+
+#####**Overview**
+
+#####References
+
+Column 4
+--------------------------------------------------
+
+### Friday Schedule
+
+
+####0700-0830 Breakfast
+
+#####0900--0915
+
+Fellowship opportunities with Owen McMillan
+
+####0915--1300
+Spend the morning drafting outline of paper
+
+
+####1300--1400 Lunch
+
+
+
+Topic 1 {data-navmenu="Outcomes"}
+=====================================  
+
+Topic 1
+--------------------------------------------------
+
+###Topic 1: Defining & Sampling a Microbiome
+
+
+**1A: What is a core microbiome?** 
+
+Tuesday Dec 04 – Core microbiome
+Groups 1 and 2
+1. What is a microbiome? All microbial organisms (e.g. bacteria, archaea, viruses, fungi,
+protozoans, and small microbial eukaryotes) “somehow” related/associated with an
+organism/host or found in a particular habitat/ecosystem in a given place and time.
+
+
+2. Is there a need to define/separate what is environmental microbiome, that is, the
+microbial community structure in a habitat (e.g. soil microbiome, water column
+microbiome) from host microbiome, that is, the microbial community structure
+associated to an organism (e.g. coral microbiome).
+
+3. What is the core microbiome? Microbes constantly (i.e. highly frequent and
+abundant/dominant) found in a habitat/host. In this sense, stability (i.e. taxon
+composition) and functionality of the microbial community is maintained within a
+defined scale.
+
+4. Is symbiosis between microbes and host a “must” to be considered as core
+microbiome? What about the environment? Is there a need to differentiate/define
+what is the “core taxonomic” (i.e. consistent microbial) members and “core
+functional” (i.e. genes or pathways) microbiome? Super organisms to neutral
+models, context dependent interactions.
+
+5. How can we tease a part and potentially quantify the direct and indirect effects of
+certain microbial groups/genes within the microbiome?
+
+6. Should use a metric(s) to define the core microbiome? Relative abundance (> a
+specific cut-off, e.g. 80%), spatial and temporal frequency (found in most samples or
+all samples), or simply presence/absence.
+
+7. Large microbiome picture: Community similarity analysis: gain and loss of
+taxonomic/functional core microbiome across different hosts through time. At what
+level the microbiome is shared in a given specific group (i.e. at the tips of the host
+phylogeny; species vs. higher taxonomic ranks). In addition, network analysis across
+different groups to characterize a particular habitat/system.
+
+8. What are some of the pros and cons associated to the concepts of microbiome and
+core microbiome?
+
+**1B: How to characterize the core microbiome?** 
+
+Tuesday Dec 04 –Characterizing the core microbiome
+Groups 3 and 4
+
+1. How to characterize the core microbiome? In addition to the considerations on how we define the core microbiome, spatio-temporal variation is a key aspect when characterizing the core microbiome. The spatial component might give us an idea of “how common/spread ” such microbial taxa and associations are in a particular host/habitat, whereas the temporal component might inform us on how stable/frequent these associations are. 
+
+2. Long-term studies are crucial to identify community patterns and also to detect drastic shifts.
+
+3. Baseline studies for different habitats/hosts and archiving material for future analyses can also advance our understanding. In addition, these baseline studies might direct us to more specific questions/goals. 
+
+4. Taxonomic scale of both host and microbial taxa should be considered, potentially tested using different resolution levels. What taxonomic resolution should we be considering when characterizing microbiomes?
+
+5. Organism and ecosystem health should be evaluated, particularly the links between microbiome and their function
+
+6. Stability and variability (both in space and time) of the microbiome should be explored
+
+7. Mapping the landscape of the host/ecosystem (e.g. strata, body regions, organism geography/distribution), life stage, life history and other important aspects of the system. This would allow us to fully/properly characterize the microbiome. Additionally, a comparison between whole/integrated vs. partitioned microbiomes or microbiome/tissue specificity can be determined.
+
+8. How important is to characterize the background environmental (i.e. sediment, water, etc.) to understand the core microbiome of an organism? How do they acquire/select their microbiome?
+
+9. How to standardize sampling strategies for microbiome studies? The importance of standard protocols, particularly for worldwide scale studies (e.g. ZEN network).
+
+10. What is the importance of well-curate databases for microbiome studies? 16S, 18S, ITS datasets (who is there)? Who is there and what they potentially do?
+
+11. What sort of datasets should we be producing (e.g. metabarcoding/amplicon, transcriptomic, and metagenomics)? What are the other techniques we might consider to use (e.g. microscopy)?
+
+
+**Comments from Amy Apprill:**
+
+One comment I wanted to provide regarding core microbiome and healthy microbiome is that I think studies often don't examine enough individuals to really address this question.  Sample sets of hundreds of individuals provide much clearer patterns compared to only a handful of individuals.  In corals and other highly permitted animals, it is often difficult to get access to these larger number of individuals, and we need managers and permitters to understand how necessary this is, especially today as ocean conditions (and likely microbiomes) will only change more in the future.  
+
+Another general comment...I also see a trend in the journals and at meetings in that descriptive studies (such as core microbiome descriptions) are now often viewed as less important than those that provide more in-depth functional trends in symbiotic interactions.  Yet, we still need descriptive studies in marine animal microbiome research!  And these types of studies are perfect for training undergraduates and graduate students and provide context for other researchers to establish new projects upon.  I am not sure how to change the culture, but perhaps this is a point that could be make in the Outcome article that descriptive studies are still incredibly valuable.
+
+
+Topic 2 {data-navmenu="Outcomes"}
+=====================================  
+
+Topic 2
+--------------------------------------------------
+
+###Topic 2: From Defining Patterns to Predicting Drivers of Diversity
+
+
+**2A: What is a healthy microbiome? Does microbial diversity matter for the host? Is more microbes better? Or fewer beneficial symbionts?**  
+
+**2B: How to identify the tipping point from symbiosis to dysbiosis in host-associated microbiomes?** 
+
+**2C: Modelling of host-microbe interactions. How do we go from describing the variation to deciphering what is driving it.**
+
+**2D: A null model for microbial communities**
+
+**2E: Monitoring host-microbe interactions: can we identify model systems or hosts to monitor (e.g., host-microbiomes with cosmopolitan distribution)?** 
+
+
+Wednesday Dec 05 – Tipping points (from healthy to unhealthy microbiomes)
+
+1. Stability, similarity in the microbiome in time and space, that is, the community structure. Does healthy microbiome mean stable? Different timing points might show different community structure (e.g. uniqueness, complete distinctness).
+
+2. Disruption of the community structure might increase diversity which in turn can also lead to an unstable/unhealthy system, that is, high diversity does not always mean healthier microbiome
+
+3. How can we evaluate these tipping points? Dispersion analysis, estimating variance?
+
+4. Should we consider host and microbial regulations, trade-offs in the system? How to measure the impacts on the host (e.g. host growth, metabolism, density in the environment)
+
+5. Dysbiosis not always lead unhealthy/mortality
+
+6. Importance of associating host/microbiome changes with environment variables, so we can predict tipping points between healthy to unhealthy microbiome
+
+7. Can we define a set of conditions in the environment to predict tipping points (e.g. nutrients, temperature, etc.)?
+
+8. Resilience/Succession in microbiome (prior, during, and post disturbance, e.g. antibiotic usage). If the system is prone to tipping, often the system cannot recover, how can we test that?
+
+9. Can/should we quantify tipping points in the microbiome? Soil microbiome literature seems to be rich in this aspect
+
+10. Multi stressors should be evaluated when evaluating healthy microbiomes and tipping points
+
+11. To what degree microbiomes assemble because the host is controlling the system and to what the degree the microbiomes are the controllers (assembly and disassembly of microbiomes)
+
+12. What is the outcome of tipping points? Does it always lead to dysbiosis?
+
+13. Example of dysbiosis in bats seem to show how unbalance their microbial community was and how affected the host health.
+
+14. Adaptable communities to couple with potential changes
+
+15. Key functional traits need to be maintained
+
+16. Diversity is not always good, since it can make the system unstable
+
+17. Relative abundance is not always a good metric (not always functionally active)
+
+18. Different ways to measure diversity, species richness, beta and alpha diversity, functional diversity
+
+19. Healthy microbiomes are not always ease to be determined, but relative. Should we move away from it?
+
+20. There is also short term and long term issues related to microbiome and what is a healthy microbiome. Ecological and evolutionary time scales should be considered.
+
+21. Total metrics, without teasing a part the potential subgroups can mask some important patterns
+
+22. Stable as predictable/predictability
+
+23. Complete dysbiosis can also occur (quiescence can be an alternative as well).
+
+
+Topic 3 {data-navmenu="Outcomes"}
+=====================================  
+
+Topic 3
+--------------------------------------------------
+
+###Topic 3: From Predicting Patterns to Conserving Diversity
+
+**3A: What can microbiology do for conservation? **
+
+Thursday Dec 06 – Bioremediation, probiotics, etc. to help conservation
+
+1. Spatio-temporal studies as baseline, so that the dynamics of microbial communities (bad and good guys) can be known.
+
+2. Importance of culturing and characterizing the different microbial symbionts for conservation purposes
+
+3. Identify potential bioindicators (potential good symbionts) to manipulate the host microbiome
+
+4. Structural work on the host (corals, sponges, etc.) might help to evaluate the impacts of a particular pollutant 
+
+5. Short time series experiment in the lab, including T0 as the starting point.
+
+6. Probiotics can be an alternative from improving ecosystem health
+
+7. Global scale sampling (e.g. mangrove in the Atlantic coast from Mexico to southeast Brazil). Seagrass can be another example for probiotic studies
+
+8. Connectivity of mangrove species, microbial species related to these habitats, etc.
+
+9. Endophytes being transplanted into species undergoing decline on their distribution, population size, etc.
+
+10. The ability of establishing large laboratory experiments (manipulation) to more fully represent the effects of the environment 
+
+Topic 4 {data-navmenu="Outcomes"}
+=====================================  
+
+Topic 4
+--------------------------------------------------
+
+###Topic 4: Expanding the breath of host-microbe studies
+
+**4A: On what taxonomic, phylogenetic and functional groups should future studies on symbiosis be focusing and why?**
+
+
+
+Synthesis {data-navmenu="Outcomes"}
+=====================================  
+
+Synthesis
+--------------------------------------------------
+
+###Synthesis
+
+
+Resources
+=====================================  
+
+Resources
+--------------------------------------------------
+
+###Resources
+
+[**phyloFlash**](https://github.com/HRGV/phyloFlash){target="_blank"} is a pipeline to rapidly reconstruct the SSU rRNAs and explore phylogenetic composition of an illumina (meta)genomic dataset. 
+
+[**Arbor**](http://www.arborworkflows.com){target="_blank"} enables any R or python code to be implemented in the cloud. You can use/modify/create workflows and generate sweet graphics that show I/O for each step of a workflow.
+
+
+The [**MIxS**](https://www.ebi.ac.uk/ena/submit/mixs-checklists){target="_blank"} is a unified standard developed by the Genomic Standards Consortium (GSC) for reporting of minimum information about any (x) nucleotide sequence. It consists of MIGS, MIMS and MIMARKS* standards and describes fourteen environments. 
